@@ -7,4 +7,7 @@ function fact(m) {
     return m * fact(m-1);
 }
 
-console.log(fact (5));
+console.log(fact(5));
+module.exports = {
+    fact: fact
+}

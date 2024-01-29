@@ -7,4 +7,7 @@ function pot(m, n) {
     return m * pot(m, n - 1);
 }
 
-console.log(pot(5,3));
+
+module.exports = {
+    pot: pot
+}

@@ -1,19 +1,13 @@
-function multi(m, n) {
-    
-    if (n === 1) {
-        return m;
-    }
+const multiplicacion = require("./multi");
 
-    return m + multi(m, n - 1);
-}
-
-function pot(x, y) {
-    
-    if (y === 0) {
+function potmulti(m, n) {
+    if (n === 0) {
         return 1;
     }
 
-    return multi (x, pot(x, y - 1));
+    return multiplicacion.multi(m, potmulti(m, n - 1));
 }
 
-console.log(pot(5, 2));
+module.exports = {
+    potmulti: potmulti,
+};

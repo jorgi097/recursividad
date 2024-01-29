@@ -7,4 +7,7 @@ function sum(m) {
     return m + sum(m-1);
 }
 
-console.log(sum(5));
+
+module.exports = {
+    sum: sum
+}

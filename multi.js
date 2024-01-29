@@ -7,4 +7,6 @@ function multi(m, n) {
     return m + multi(m, n - 1);
 }
 
-console.log(multi(5,3));
+module.exports = {
+    multi: multi
+}

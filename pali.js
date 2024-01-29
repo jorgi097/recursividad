@@ -1,5 +1,3 @@
-valor = "anita lava la tina";
-
 function pali(cadena, i, d) {
     if (i >= d) {
         return true;
@@ -14,4 +12,8 @@ function pali(cadena, i, d) {
     }
 }
 
-console.log(pali(valor, 0, valor.length - 1));  
+
+ 
+module.exports = {
+    pali: pali,
+}

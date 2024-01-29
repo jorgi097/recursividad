@@ -1,26 +1,33 @@
-let valor = "universidad";
-let i = 0;
-let d = valor.length - 1;
-let aux = undefined;
+let valorReverse = ["u", "n", "i", "v", "e", "r", "s", "i", "d", "a", "d"];
+let iReverse = 0;
+let dReverse = valorReverse.length - 1;
+let auxReverse = undefined;
 
-let valorarray = valor.split('');  // Create a copy of the array
-
-function reverse(cadena) {
-    if (i >= d) {
-        return cadena.join('');
+function reverse(arr) {
+    if (iReverse >= dReverse) {
+        return arr.join('');
     }
 
-    if (cadena[i] === cadena[d]) {
-        aux = cadena[i];
-        cadena[i] = cadena[d];
-        cadena[d] = aux;
-        i++;
-        d--;
-        return reverse(cadena);  // Return the result of the recursive call
-    } else {
-        return cadena.join(''); // Add a return statement for the recursive case
+    if (iReverse < dReverse) {
+        auxReverse = arr[iReverse];
+        arr[iReverse] = arr[dReverse];
+        arr[dReverse] = auxReverse;
+        iReverse++;
+        dReverse--;
+        return reverse(arr);
+    } else {;
+        return arr.joiReversen('');
     }
 }
 
-let reversedString = reverse(valorarray);
-console.log(reversedString);
+let reversedArray = reverse(valorReverse);
+console.log(reversedArray);
+
+
+module.exports = {
+    reverse: reverse,
+    valorReverse: valorReverse,
+    iReverse: iReverse,
+    dReverse: dReverse,
+    auxReverse: auxReverse
+}

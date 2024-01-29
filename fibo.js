@@ -1,4 +1,4 @@
-const prompt = require('prompt-sync')();
+// const prompt = require('prompt-sync')();
 
 
 function fibo(n) {
@@ -12,13 +12,10 @@ function fibo(n) {
     }
 }
 
-let n = prompt('Ingresa un numero para ejecutar fibonacci: ')   
-
-console.log(fibo(n));
-
-
-
 // for (let i = 1; i <= n; i++) {
 //     console.log(fibo(i));
 // }
 
+module.exports = {
+    fibo: fibo
+}
