@@ -39,9 +39,9 @@ function printMenu() {
         console.log(`${i + 1}) ${menuoptions[i]}`);
     }
 
-    menuResponse = parseInt(prompt("Ingrese la opción deseada: "));
+    menuResponse = parseInt(prompt("\nIngrese la opción deseada: "));
 }
-do{
+do {
     printMenu();
 
     switch (menuResponse) {
@@ -99,7 +99,9 @@ do{
                 numPotMulti1,
                 numPotMulti2
             );
-            console.log(`\n${numPotMulti1} elevado a ${numPotMulti2} = ${potMultiResult}`);
+            console.log(
+                `\n${numPotMulti1} elevado a ${numPotMulti2} = ${potMultiResult}`
+            );
             break;
 
         case 7: //Palindromo
@@ -126,7 +128,9 @@ do{
 
         case 8: //Invertir
             clearPrint(menuResponse);
-            const reverseResponse = prompt("Ingresa una palabra para invertirla: ");
+            const reverseResponse = prompt(
+                "Ingresa una palabra para invertirla: "
+            );
             const reverseResponseArray = reverseResponse.split("");
             const reverseResponseArrayLen = reverseResponseArray.length - 1;
             const reverseResult = reverse.reverse(
@@ -147,19 +151,39 @@ do{
 
             break;
 
+            // Planteamiento: Dado un número n de aros, indicar los movimientos que hay que hacer para resolver el problema de las Torres de Hanoi.
+
+            // Planteamiento: Implementar, con recursividad, una función que haga lo mismo que un ciclo for.
+        
+            // Planteamiento: Dado un número n, desplegar los primeros n números de la serie de Fobonacci.
+            
+            // Ejemplo: sea n = 6
+            // Se desplegará: 0, 1, 1, 2, 3, 5
+            // Si necesita utilizar un ciclo for, utilice la función del planteamiento anterior.
+
+
         case 11: //Fibonacci
             clearPrint(menuResponse);
-            const fiboResponse = parseInt(prompt("Ingresa un numero para calcular la seuencia de fibonacci: "));
+            const fiboResponse = parseInt(
+                prompt(
+                    "Ingresa un numero para calcular la seuencia de fibonacci: "
+                )
+            );
             const fiboResult = fibonacci.fibo(fiboResponse);
-            console.log(`Fibonacci de ${fiboResponse} digitos da como resultado: ${fiboResult}.`);
+            console.log(
+                `Fibonacci de ${fiboResponse} digitos da como resultado: ${fiboResult}.`
+            );
             break;
 
         default:
             break;
     }
 
-    const continuar = prompt("\n¿Desea regresar al menú principal? y/n: ");
-    if (continuar === "n" || "N") {
+    let continuar = prompt("\n¿Desea regresar al menú principal? y/n: ");
+    if (continuar.toLowerCase() === "n") {
+        console.log("Saliendo...");
         menuResponse = 0;
+    } else if(continuar.toLowerCase() === "y"){
+        console.clear();
     }
-}while(menuResponse != 0)
+} while (menuResponse != 0);
