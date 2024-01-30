@@ -73,8 +73,12 @@ switch (menuResponse) {
 
     case 4:
         clearPrint(menuResponse);
-        const numMulti1 = parseInt(prompt("Ingresa el primer digito a multiplicar: "));
-        const numMulti2 = parseInt(prompt("Ingresa el segundo digito a multiplicar: "));
+        const numMulti1 = parseInt(
+            prompt("Ingresa el primer digito a multiplicar: ")
+        );
+        const numMulti2 = parseInt(
+            prompt("Ingresa el segundo digito a multiplicar: ")
+        );
         const multiResult = multiplicacion.multi(numMulti1, numMulti2);
         console.log(multiResult);
         break;
@@ -91,13 +95,28 @@ switch (menuResponse) {
         clearPrint(menuResponse);
         const numPotMulti1 = parseInt(prompt("Ingresa la base: "));
         const numPotMulti2 = parseInt(prompt("Ingresa el exponente: "));
-        const potMultiResult = potenciaMultiplicacion.potmulti(numPotMulti1, numPotMulti2);
+        const potMultiResult = potenciaMultiplicacion.potmulti(
+            numPotMulti1,
+            numPotMulti2
+        );
         console.log(potMultiResult);
         break;
 
     case 7:
         clearPrint(menuResponse);
-            
+        const cadenaPalindroma = prompt(
+            "Ingresa una frase para saber si es palíndroma: "
+        );
+        // Elimina espacios y convierte a minúsculas
+        const cadenaPalindromaUnida = cadenaPalindroma
+            .replace(/\s/g, "")
+            .toLowerCase();
+        const palindromoResult = palindromo.pali(cadenaPalindromaUnida, 0, cadenaPalindroma.length-1);
+        if (palindromoResult) {
+            console.log("Tu frase es palíndroma");
+        } else {
+            console.log("Tu frase no es palíndroma");
+        }
         break;
 
     case 8:
@@ -114,7 +133,6 @@ switch (menuResponse) {
         clearPrint(menuResponse);
 
         break;
-
 
     default:
         break;
