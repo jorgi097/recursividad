@@ -1,33 +1,18 @@
-let valorReverse = ["u", "n", "i", "v", "e", "r", "s", "i", "d", "a", "d"];
-let iReverse = 0;
-let dReverse = valorReverse.length - 1;
-let auxReverse = undefined;
-
-function reverse(arr) {
-    if (iReverse >= dReverse) {
-        return arr.join('');
+function reverse(arr, i, d) {
+    if (i >= d) {
+        return arr.join("");
     }
 
-    if (iReverse < dReverse) {
-        auxReverse = arr[iReverse];
-        arr[iReverse] = arr[dReverse];
-        arr[dReverse] = auxReverse;
-        iReverse++;
-        dReverse--;
-        return reverse(arr);
-    } else {;
-        return arr.joiReversen('');
+    if (i < d) {
+        let aux = arr[i];
+        arr[i] = arr[d];
+        arr[d] = aux;
+        return reverse(arr, i + 1, d - 1);
+    } else {
+        return arr.join("");
     }
 }
-
-let reversedArray = reverse(valorReverse);
-console.log(reversedArray);
-
 
 module.exports = {
     reverse: reverse,
-    valorReverse: valorReverse,
-    iReverse: iReverse,
-    dReverse: dReverse,
-    auxReverse: auxReverse
-}
+};
