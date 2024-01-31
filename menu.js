@@ -7,6 +7,7 @@ const potencia = require("./pot");
 const potenciaMultiplicacion = require("./pot con multi");
 const reverse = require("./reverse");
 const sumatoria = require("./sum");
+const forRecursivo = require("./forRecursivo");
 const prompt = require("prompt-sync")();
 
 let menuResponse = undefined;
@@ -151,16 +152,15 @@ do {
 
             break;
 
-            // Planteamiento: Dado un número n de aros, indicar los movimientos que hay que hacer para resolver el problema de las Torres de Hanoi.
+        // Planteamiento: Dado un número n de aros, indicar los movimientos que hay que hacer para resolver el problema de las Torres de Hanoi.
 
-            // Planteamiento: Implementar, con recursividad, una función que haga lo mismo que un ciclo for.
-        
-            // Planteamiento: Dado un número n, desplegar los primeros n números de la serie de Fobonacci.
-            
-            // Ejemplo: sea n = 6
-            // Se desplegará: 0, 1, 1, 2, 3, 5
-            // Si necesita utilizar un ciclo for, utilice la función del planteamiento anterior.
+        // Planteamiento: Implementar, con recursividad, una función que haga lo mismo que un ciclo for.
 
+        // Planteamiento: Dado un número n, desplegar los primeros n números de la serie de Fobonacci.
+
+        // Ejemplo: sea n = 6
+        // Se desplegará: 0, 1, 1, 2, 3, 5
+        // Si necesita utilizar un ciclo for, utilice la función del planteamiento anterior.
 
         case 11: //Fibonacci
             clearPrint(menuResponse);
@@ -169,10 +169,9 @@ do {
                     "Ingresa un numero para calcular la seuencia de fibonacci: "
                 )
             );
-            const fiboResult = fibonacci.fibo(fiboResponse);
-            console.log(
-                `Fibonacci de ${fiboResponse} digitos da como resultado: ${fiboResult}.`
-            );
+            forRecursivo.forRecPlus(1, fiboResponse, 1, (ini) => {
+                console.log(fibonacci.fibo(ini));
+            });
             break;
 
         default:
@@ -183,7 +182,7 @@ do {
     if (continuar.toLowerCase() === "n") {
         console.log("Saliendo...");
         menuResponse = 0;
-    } else if(continuar.toLowerCase() === "y"){
+    } else if (continuar.toLowerCase() === "y") {
         console.clear();
     }
 } while (menuResponse != 0);
