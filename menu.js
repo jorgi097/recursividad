@@ -17,14 +17,16 @@ let menuoptions = [
     "Sumatoria",
     "Potencia",
     "Multiplicacion",
-    "Division con restas",
-    "Potencia con multiplicacion",
-    "Es palindromo?",
-    "Invertir palabra",
+    "Division Con Restas",
+    "Potencia Con Multiplicacion",
+    "Es Palindromo?",
+    "Invertir Frase",
     "Hannoi",
-    "For recursivo",
+    "For Recursivo",
     "Fibonacci",
 ];
+
+console.clear();
 
 function clearPrint(opt) {
     console.clear();
@@ -34,18 +36,21 @@ function clearPrint(opt) {
 function printMenu() {
     console.log("MENU\n");
 
-    console.log("0) para salir");
+    console.log("0) Salir");
 
     for (let i = 0; i < menuoptions.length; i++) {
         console.log(`${i + 1}) ${menuoptions[i]}`);
     }
-
-    menuResponse = parseInt(prompt("\nIngrese la opción deseada: "));
+    console.log("");
+    menuResponse = parseInt(prompt("Ingrese la opción deseada: "));
 }
 do {
     printMenu();
 
     switch (menuResponse) {
+        case 0:
+            return;
+
         case 1: //Factorial
             clearPrint(menuResponse);
             const factResponse = parseInt(
@@ -121,16 +126,16 @@ do {
                 paliResponseMinLen
             );
             if (paliResult) {
-                console.log(`\n${paliResponse} es palíndroma`);
+                console.log(`\n${paliResponse} es palíndromo`);
             } else {
-                console.log(`\n${paliResponse} no es palíndroma`);
+                console.log(`\n${paliResponse} no es palíndromo`);
             }
             break;
 
         case 8: //Invertir
             clearPrint(menuResponse);
             const reverseResponse = prompt(
-                "Ingresa una palabra para invertirla: "
+                "Ingresa una frase para invertirla: "
             );
             const reverseResponseArray = reverseResponse.split("");
             const reverseResponseArrayLen = reverseResponseArray.length - 1;
@@ -139,8 +144,10 @@ do {
                 0,
                 reverseResponseArrayLen
             );
-            console.log(`\nTu palabra invertida es: ${reverseResult}`);
+            console.log(`\nTu frase invertida es: ${reverseResult}`);
             break;
+
+        // Planteamiento: Dado un número n de aros, indicar los movimientos que hay que hacer para resolver el problema de las Torres de Hanoi.
 
         case 9: //Hanoi
             clearPrint(menuResponse);
@@ -149,18 +156,35 @@ do {
 
         case 10: //For
             clearPrint(menuResponse);
+            console.log(
+                "Esta funcion detecta automaticamente si es incremental o decremental\n"
+            );
+            const inicio = parseInt(
+                prompt("Dime en que numero inicia tu For Recursivo: ")
+            );
+            const final = parseInt(
+                prompt("Dime cuando finaliza tu For Recursivo: ")
+            );
+            const cambio = parseInt(
+                prompt(
+                    "Dime cuanto va a cambiar en cada iteración (lo que equivale en un for a: i++, i+2, i-3, etc): "
+                )
+            );
 
+            if (inicio < final) {
+                // Caso incremental
+                forRecursivo.forRecPlus(inicio, final, cambio, (valor) => {
+                    console.log(valor);
+                });
+            } else if (inicio > final) {
+                //Caso decremental
+                forRecursivo.forRecMinus(inicio, final, cambio, (valor) => {
+                    console.log(valor);
+                });
+            } else {
+                console.log("Parametros no validos");
+            }
             break;
-
-        // Planteamiento: Dado un número n de aros, indicar los movimientos que hay que hacer para resolver el problema de las Torres de Hanoi.
-
-        // Planteamiento: Implementar, con recursividad, una función que haga lo mismo que un ciclo for.
-
-        // Planteamiento: Dado un número n, desplegar los primeros n números de la serie de Fobonacci.
-
-        // Ejemplo: sea n = 6
-        // Se desplegará: 0, 1, 1, 2, 3, 5
-        // Si necesita utilizar un ciclo for, utilice la función del planteamiento anterior.
 
         case 11: //Fibonacci
             clearPrint(menuResponse);
@@ -170,6 +194,7 @@ do {
                 )
             );
             forRecursivo.forRecPlus(1, fiboResponse, 1, (ini) => {
+                //Uso de for en versión recursiva
                 console.log(fibonacci.fibo(ini));
             });
             break;
@@ -178,7 +203,7 @@ do {
             break;
     }
 
-    let continuar = prompt("\n¿Desea regresar al menú principal? y/n: ");
+    let continuar = prompt("\n¿Desea regresar al menú principal?  y/n: ");
     if (continuar.toLowerCase() === "n") {
         console.log("Saliendo...");
         menuResponse = 0;
