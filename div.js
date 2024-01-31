@@ -1,5 +1,5 @@
 function div(m, n) { //DIVIDE 2 NUMEROS CON REISDUO 0 USANDO RESTAS
-    if (m < n) { //SI EL DIIDENDO ES MENOR QUE EL DIVISOR SE TERMINA LA EJECUCIÓN
+    if (m < n) { //SI EL DIVIDENDO ES MENOR QUE EL DIVISOR SE TERMINA LA EJECUCIÓN
         return m;
     } else {
         return 1 + div(m - n, n);

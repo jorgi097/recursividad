@@ -18,7 +18,7 @@ let menuoptions = [ //ARRAY CON LAS OPCIONES DEL MENU PRINCIPAL
     "Factorial",
     "Sumatoria",
     "Potencia",
-    "Multiplicacion",
+    "Multiplicacion Con Sumas",
     "Division Con Restas",
     "Potencia Con Multiplicacion",
     "Es Palindromo?",
@@ -81,7 +81,7 @@ while (true) { //HACE QUE AL FINALIZAR UN PROGRAMA RETORNE AL MENU RINCIPAL
             console.log(`\n${numPot1} elevado a ${numPot2} = ${potResult}`); //IMPRIME EL RESULTADO
             break;
 
-        case 4: //Multiplicación
+        case 4: //Multiplicación con sumas
             clearPrint(menuResponse);
             const numMulti1 = parseInt(
                 prompt("Ingresa el primer digito a multiplicar: ")
@@ -208,7 +208,7 @@ while (true) { //HACE QUE AL FINALIZAR UN PROGRAMA RETORNE AL MENU RINCIPAL
             break;
     }
 
-    let continuar = prompt("\n¿Desea regresar al menú principal?  Y/N: ");
+    let continuar = prompt("¿Desea regresar al menú principal?  Y/N: ");
     if (continuar.toLowerCase() === "n") { //CONIERTE A MINUSCULAS LA RESPUESTA
         console.log("Saliendo...");
         return; //SALE DEL PROGRAMA

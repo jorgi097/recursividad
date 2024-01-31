@@ -1,6 +1,6 @@
 function fact(m) { //DA EL FACTORIAL DE UN NUMERO
     
-    if (m === 1) { //AL LLEGAR A UNO SE DETIENE
+    if (m === 1) { //UN NUMERO MUTIPLICADO POR 1 DA ESE MISMO NUMERO
         return m;
     }
 

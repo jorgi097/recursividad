@@ -5,7 +5,7 @@ function potmulti(m, n) { //OBTIENE LA POTENCIA USANDO A LA FUNCION MULTIPLICAR
         return 1;
     }
 
-    return multiplicacion.multi(m, potmulti(m, n - 1));
+    return multiplicacion.multi(m, potmulti(m, n - 1)); //LLAMADA AL MODULO IMPORTADO CON LA FUNCION MULTIPLICAR
 }
 
 module.exports = { //EXPORTA LA FUNCION PARA SER USADA EN EL MENU PRINCIPAL
