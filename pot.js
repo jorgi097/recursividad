@@ -1,6 +1,6 @@
-function pot(m, n) {
+function pot(m, n) { //OBTIENE LA POTENCIA
     
-    if (n === 0) {
+    if (n === 0) { //UN NUMERO ELEVADO A 0 DA 1
         return 1;
     }
 
@@ -8,6 +8,6 @@ function pot(m, n) {
 }
 
 
-module.exports = {
+module.exports = { //EXPORTA LA FUNCION PARA SER USADA EN EL MENU PRINCIPAL
     pot: pot
 }

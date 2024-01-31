@@ -1,3 +1,4 @@
+//IMPORTA LAS FUNCIONES DE CADA ARCHIVO
 const division = require("./div");
 const factorial = require("./fact");
 const fibonacci = require("./fibo");
@@ -8,11 +9,12 @@ const potenciaMultiplicacion = require("./pot con multi");
 const reverse = require("./reverse");
 const sumatoria = require("./sum");
 const forRecursivo = require("./forRecursivo");
-const prompt = require("prompt-sync")();
+const hanoi = require("./hanoi");
+const prompt = require("prompt-sync")(); //LIBRERIA QUE PERMITE USAR PROMT("FRASE"); PARA OBTENER INPUT DEL USUARIO
 
-let menuResponse = undefined;
+let menuResponse = undefined; //RESPUESTA DEL MENU PRINCIPAL
 
-let menuoptions = [
+let menuoptions = [ //ARRAY CON LAS OPCIONES DEL MENU PRINCIPAL
     "Factorial",
     "Sumatoria",
     "Potencia",
@@ -26,40 +28,40 @@ let menuoptions = [
     "Fibonacci",
 ];
 
-console.clear();
+console.clear(); //LIMPIA LA CONSOLA
 
-function clearPrint(opt) {
+function clearPrint(opt) { //LIMPIA LA CONSOLA Y DESPUES IMPRIME EL TITULO DE LA OPCION ELEGIDA
     console.clear();
     console.log(`${menuoptions[opt - 1]}\n`);
 }
 
-function printMenu() {
+function printMenu() { 
     console.log("MENU\n");
 
     console.log("0) Salir");
 
-    for (let i = 0; i < menuoptions.length; i++) {
+    for (let i = 0; i < menuoptions.length; i++) { //IMPRIME EL MENU PRINCIPAL USANDO EL ARRAY DE OPCIONES
         console.log(`${i + 1}) ${menuoptions[i]}`);
     }
     console.log("");
     menuResponse = parseInt(prompt("Ingrese la opción deseada: "));
 }
 
-while (true) {
+while (true) { //HACE QUE AL FINALIZAR UN PROGRAMA RETORNE AL MENU RINCIPAL
     printMenu();
 
     switch (menuResponse) {
         case 0:
             console.log("Saliendo...");
-            return;
+            return; //SALE DEL PROGRAMA
 
         case 1: //Factorial
             clearPrint(menuResponse);
             const factResponse = parseInt(
                 prompt("Ingresa un numero para darte el factorial: ")
             );
-            const factResult = factorial.fact(factResponse);
-            console.log(`\nEl factorial de ${factResponse} es: ${factResult}`);
+            const factResult = factorial.fact(factResponse); //LLAMADA AL MODULO IMPORTADO CON LA FUNCION FACTORIAL
+            console.log(`\nEl factorial de ${factResponse} es: ${factResult}`); //IMPRIME EL RESULTADO
             break;
 
         case 2: //Sumatoria
@@ -67,16 +69,16 @@ while (true) {
             const sumResponse = parseInt(
                 prompt("Ingresa un numero para darte la sumatoria: ")
             );
-            const sumResult = sumatoria.sum(sumResponse);
-            console.log(`\nLa sumatoria de ${sumResponse} es: ${sumResult}`);
+            const sumResult = sumatoria.sum(sumResponse); //LLAMADA AL MODULO IMPORTADO CON LA FUNCION SUMATORIA
+            console.log(`\nLa sumatoria de ${sumResponse} es: ${sumResult}`); //IMPRIME EL RESULTADO
             break;
 
         case 3: //Potencia
             clearPrint(menuResponse);
             const numPot1 = parseInt(prompt("Ingresa la base: "));
             const numPot2 = parseInt(prompt("Ingresa el exponente: "));
-            const potResult = potencia.pot(numPot1, numPot2);
-            console.log(`\n${numPot1} elevado a ${numPot2} = ${potResult}`);
+            const potResult = potencia.pot(numPot1, numPot2); //LLAMADA AL MODULO IMPORTADO CON LA FUNCION POTENCIA
+            console.log(`\n${numPot1} elevado a ${numPot2} = ${potResult}`); //IMPRIME EL RESULTADO
             break;
 
         case 4: //Multiplicación
@@ -87,16 +89,16 @@ while (true) {
             const numMulti2 = parseInt(
                 prompt("Ingresa el segundo digito a multiplicar: ")
             );
-            const multiResult = multiplicacion.multi(numMulti1, numMulti2);
-            console.log(`\n${numMulti1} * ${numMulti2} = ${multiResult}`);
+            const multiResult = multiplicacion.multi(numMulti1, numMulti2); //LLAMADA AL MODULO IMPORTADO CON LA FUNCION MULTIPLICAR
+            console.log(`\n${numMulti1} * ${numMulti2} = ${multiResult}`); //IMPRIME EL RESULTADO
             break;
 
         case 5: //Division
             clearPrint(menuResponse);
             const numDiv1 = parseInt(prompt("Ingresa el dividendo: "));
             const numDiv2 = parseInt(prompt("Ingresa el divisor: "));
-            const divResult = division.div(numDiv1, numDiv2);
-            console.log(`\n${numDiv1} / ${numDiv2} = ${divResult}`);
+            const divResult = division.div(numDiv1, numDiv2); //LLAMADA AL MODULO IMPORTADO CON LA FUNCION DIVISON
+            console.log(`\n${numDiv1} / ${numDiv2} = ${divResult}`); //IMPRIME EL RESULTADO
             break;
 
         case 6: //Potencia con multiplicación
@@ -106,10 +108,10 @@ while (true) {
             const potMultiResult = potenciaMultiplicacion.potmulti(
                 numPotMulti1,
                 numPotMulti2
-            );
+            ); //LLAMADA AL MODULO IMPORTADO CON LA FUNCION POTENCIAMULTIPLICACION
             console.log(
                 `\n${numPotMulti1} elevado a ${numPotMulti2} = ${potMultiResult}`
-            );
+            ); //IMPRIME EL RESULTADO
             break;
 
         case 7: //Palindromo
@@ -117,7 +119,7 @@ while (true) {
             const paliResponse = prompt(
                 "Ingresa una frase para saber si es palíndroma: "
             );
-            // Elimina espacios y convierte a minúsculas
+            //ELIMINA ESPACIOS Y CONVIERTE A MINUSCULA
             const paliResponseMin = paliResponse
                 .replace(/\s/g, "")
                 .toLowerCase();
@@ -126,8 +128,8 @@ while (true) {
                 paliResponseMin,
                 0,
                 paliResponseMinLen
-            );
-            if (paliResult) {
+            ); //LLAMADA AL MODULO IMPORTADO CON LA FUNCION PALINDROMO
+            if (paliResult) { //IMPRIME EL RESULTADO DPENDIENDO DE SI RETORNA TRUE O FALSE
                 console.log(`\n${paliResponse} es palíndromo`);
             } else {
                 console.log(`\n${paliResponse} no es palíndromo`);
@@ -145,15 +147,16 @@ while (true) {
                 reverseResponseArray,
                 0,
                 reverseResponseArrayLen
-            );
-            console.log(`\nTu frase invertida es: ${reverseResult}`);
+            ); //LLAMADA AL MODULO IMPORTADO CON LA FUNCION REVERSE
+            console.log(`\nTu frase invertida es: ${reverseResult}`); //IMPRIME EL RESULTADO
             break;
-
-        // Planteamiento: Dado un número n de aros, indicar los movimientos que hay que hacer para resolver el problema de las Torres de Hanoi.
 
         case 9: //Hanoi
             clearPrint(menuResponse);
-
+            const hanoiResponse = parseInt(prompt(
+                "Ingresa cuantos aros tendra la torre de origen: "
+            ));
+            const hanoiResult = hanoi.hanoi(hanoiResponse, "A", "C", "B"); //LLAMADA AL MODULO IMPORTADO CON LA FUNCION HANOI
             break;
 
         case 10: //For
@@ -173,17 +176,17 @@ while (true) {
                 )
             );
 
-            if (inicio < final) {
+            if (inicio < final) { //DETECTA SI EL CICLO ES INCREMENTAL 
                 // Caso incremental
-                forRecursivo.forRecPlus(inicio, final, cambio, (valor) => {
+                forRecursivo.forRecPlus(inicio, final, cambio, (valor) => { //LLAMADA AL MODULO IMPORTADO CON LA FUNCION FOR INCREMENTAL
                     console.log(valor);
                 });
-            } else if (inicio > final) {
+            } else if (inicio > final) { //DETECTA SI EL CASO ES DECREMENTAL
                 //Caso decremental
-                forRecursivo.forRecMinus(inicio, final, cambio, (valor) => {
+                forRecursivo.forRecMinus(inicio, final, cambio, (valor) => { //LLAMADA AL MODULO IMPORTADO CON LA FUNCION FOR DECREMENTAL
                     console.log(valor);
                 });
-            } else {
+            } else { //EVITA ERRORES
                 console.log("Parametros no validos");
             }
             break;
@@ -195,7 +198,7 @@ while (true) {
                     "Ingresa un numero para calcular la seuencia de fibonacci: "
                 )
             );
-            forRecursivo.forRecPlus(1, fiboResponse, 1, (ini) => {
+            forRecursivo.forRecPlus(1, fiboResponse, 1, (ini) => { //LLAMADA AL MODULO IMPORTADO CON LA FUNCION FIBONACCI
                 //Uso de for en versión recursiva
                 console.log(fibonacci.fibo(ini));
             });
@@ -205,11 +208,11 @@ while (true) {
             break;
     }
 
-    let continuar = prompt("\n¿Desea regresar al menú principal?  y/n: ");
-    if (continuar.toLowerCase() === "n") {
+    let continuar = prompt("\n¿Desea regresar al menú principal?  Y/N: ");
+    if (continuar.toLowerCase() === "n") { //CONIERTE A MINUSCULAS LA RESPUESTA
         console.log("Saliendo...");
-        return;
+        return; //SALE DEL PROGRAMA
     } else if (continuar.toLowerCase() === "y") {
-        console.clear();
+        console.clear(); //LIMPIA LA CONSOLA Y EL WHILE REPITE EL MENU
     }
 }

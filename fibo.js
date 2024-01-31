@@ -1,5 +1,5 @@
 function fibo(n) {
-    if (n === 1) {
+    if (n === 1) { 
         return 0;
     }
     if (n === 2) {
@@ -9,6 +9,6 @@ function fibo(n) {
     }
 }
 
-module.exports = {
+module.exports = { //EXPORTA LA FUNCION PARA SER USADA EN EL MENU PRINCIPAL
     fibo: fibo
 }

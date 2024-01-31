@@ -1,6 +1,6 @@
-function sum(m) {
+function sum(m) { //OBTIENE LA SUMATORIA HASTA UN NUMERO DADO
     
-    if (m === 1) {
+    if (m === 1) { //AL LLEGAR A 1 SE DETIENE
         return m;
     }
 
@@ -8,6 +8,6 @@ function sum(m) {
 }
 
 
-module.exports = {
+module.exports = { //EXPORTA LA FUNCION PARA SER USADA EN EL MENU PRINCIPAL
     sum: sum
 }
