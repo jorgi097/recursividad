@@ -44,11 +44,13 @@ function printMenu() {
     console.log("");
     menuResponse = parseInt(prompt("Ingrese la opción deseada: "));
 }
-do {
+
+while (true) {
     printMenu();
 
     switch (menuResponse) {
         case 0:
+            console.log("Saliendo...");
             return;
 
         case 1: //Factorial
@@ -206,8 +208,8 @@ do {
     let continuar = prompt("\n¿Desea regresar al menú principal?  y/n: ");
     if (continuar.toLowerCase() === "n") {
         console.log("Saliendo...");
-        menuResponse = 0;
+        return;
     } else if (continuar.toLowerCase() === "y") {
         console.clear();
     }
-} while (menuResponse != 0);
+}
